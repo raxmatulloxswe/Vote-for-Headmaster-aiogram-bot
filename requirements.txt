@@ -1,0 +1,5 @@
+loguru
+aiogram
+asyncpg
+redis
+python-dotenv
