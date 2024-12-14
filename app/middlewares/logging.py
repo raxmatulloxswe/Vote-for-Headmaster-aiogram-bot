@@ -1,9 +1,11 @@
 from typing import Callable, Dict, Any, Awaitable
-
-from aiogram.types import Update
+from aiogram.types import Update, User
 from aiogram import BaseMiddleware
 
 from loguru import logger
+
+
+EVENT_FROM_USER = 'event_from_user'
 
 
 class LoggingMiddleware(BaseMiddleware):
@@ -14,7 +16,9 @@ class LoggingMiddleware(BaseMiddleware):
             event: Update,
             data: Dict[str, Any]
     ) -> Any:
-        logger.info(f"Receive update {event}")
+        user: User = data.get('event_from_user')
+
+        logger.info(f"User -- {user}")
         return await handler(event, data)
 
 

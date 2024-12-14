@@ -14,3 +14,5 @@ async def start_command(message: types.Message):
 @router.message(Command('help'))
 async def help_command(message: types.Message):
     await message.answer("Available commands:\n/start - Start the bot\n/help - Get help")
+
+

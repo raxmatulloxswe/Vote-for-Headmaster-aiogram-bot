@@ -30,6 +30,6 @@ def inline_main_menu():
 def inline_subscribe():
     inline_keyboard = InlineKeyboardBuilder()
 
-    inline_keyboard.button(text='Subscribe', url='https://t.me/+GRx6sKGZLn83YWEy')
+    inline_keyboard.button(text='Subscribe', url='@raxmatulloxs_log')
 
     return inline_keyboard.as_markup()
