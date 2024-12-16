@@ -1,5 +1,5 @@
 loguru
-aiogram
+aiogram==3.14.0
 asyncpg
 redis
 python-dotenv

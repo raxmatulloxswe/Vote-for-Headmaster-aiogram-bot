@@ -1,0 +1,1 @@
+from aiogram.fsm.state import StatesGroup, Stateclass VoteStateGroup(StatesGroup):    vote_director = State()    result = State()

@@ -7,6 +7,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums.parse_mode import ParseMode
 
 from app.handlers import setup_handlers
+from app.handlers.commands import set_commands
 from app.middlewares import setup_middlewares
 from app.utils.db_manager import db
 
@@ -26,6 +27,7 @@ async def main():
     setup_middlewares(dp)
 
     setup_handlers(dp)
+    await set_commands(bot)
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)

@@ -22,11 +22,9 @@ class CheckSubscriptionMiddleware(BaseMiddleware):
         user: User = data.get(EVENT_FROM_USER)
 
         chat_member: ChatMember = await bot.get_chat_member(chat_id=config.SUBSCRIPTION_CHANNEL_ID, user_id=user.id)
-        print(chat_member)
         try:
             if chat_member.status not in ("member", "administrator", "creator"):
                 return await bot.send_message(chat_id=user.id, text="Iltimos, kanalga obuna bo'ling!", reply_markup=inline_subscribe())
-
         except TelegramBadRequest as e:
             if "chat not found" in str(e):
                 return await bot.send_message(chat_id=user.id, text="Kanal topilmadi yoki bot kanalga ulanmagan!")
@@ -34,3 +32,6 @@ class CheckSubscriptionMiddleware(BaseMiddleware):
                 return await bot.send_message(chat_id=user.id, text=f"Kutilmagan xato: {e}")
 
         return await handler(event, data)
+
+
+# "Check Subscription" tugmasi bosilganda tekshirish
