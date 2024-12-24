@@ -10,10 +10,10 @@ if __name__ == '__main__':
     event_loop = asyncio.get_event_loop()
 
     try:
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         event_loop.create_task(run_bot())
         event_loop.run_forever()
     except KeyboardInterrupt:
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         logger.info("Bot Stopped")
         event_loop.stop()
